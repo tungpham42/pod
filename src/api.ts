@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Calls our local Netlify proxy
 const api = axios.create({
-  baseURL: "/api",
+  baseURL: "/.netlify/functions",
 });
 
 export const getProducts = async () => {
