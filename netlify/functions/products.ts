@@ -1,15 +1,20 @@
 import { Handler } from "@netlify/functions";
 import axios from "axios";
+import { corsHeaders } from "./utils/cors"; // Import the headers
 
 export const handler: Handler = async (event, context) => {
-  const PRINTFUL_API_KEY = process.env.PRINTFUL_API_KEY;
-
-  if (!PRINTFUL_API_KEY) {
-    return { statusCode: 500, body: "Missing API Key" };
+  // 1. Handle OPTIONS (Preflight) Request
+  if (event.httpMethod === "OPTIONS") {
+    return {
+      statusCode: 200,
+      headers: corsHeaders,
+      body: "",
+    };
   }
 
+  const PRINTFUL_API_KEY = process.env.PRINTFUL_API_KEY;
+
   try {
-    // Fetch Sync Products (Products you've designed in Printful Dashboard)
     const response = await axios.get(
       "https://api.printful.com/store/products",
       {
@@ -22,11 +27,13 @@ export const handler: Handler = async (event, context) => {
 
     return {
       statusCode: 200,
+      headers: corsHeaders, // 2. Add headers to success response
       body: JSON.stringify(response.data.result),
     };
   } catch (error) {
     return {
       statusCode: 500,
+      headers: corsHeaders, // 3. Add headers to error response
       body: JSON.stringify({ message: "Failed to fetch products" }),
     };
   }

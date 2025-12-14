@@ -1,38 +1,73 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Nunito:wght@400;600;700&display=swap");
+
+body {
+  background-color: #fcfbf9; /* Warm Cream Background */
+  background-image: radial-gradient(#e5e5e5 1px, transparent 1px);
+  background-size: 20px 20px; /* Subtle texture */
+  color: #4a4a4a;
+  font-family: "Nunito", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Headings should use the Serif font for elegance */
+h1,
+h2,
+h3,
+h4,
+h5,
+.ant-typography-title {
+  font-family: "Lora", serif !important;
+  color: #3d3a36 !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Glassmorphism Header */
+.cozy-header {
+  background: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 0 50px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Soft Cards */
+.cozy-card {
+  border: none !important;
+  border-radius: 20px !important;
+  box-shadow: 0 10px 30px rgba(139, 131, 120, 0.08) !important;
+  transition: all 0.3s ease !important;
+  background: #fff !important;
+  overflow: hidden;
 }
 
-.App-link {
-  color: #61dafb;
+.cozy-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(139, 131, 120, 0.15) !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Custom "Pill" Radio Buttons for Size/Color */
+.ant-radio-button-wrapper {
+  border: 1px solid #eee;
+  border-radius: 50px !important; /* Fully rounded */
+  margin-right: 10px;
+  background: #f9f9f9;
+  color: #666;
+  font-weight: 600;
+}
+
+.ant-radio-button-wrapper-checked {
+  background: #e07a5f !important; /* Terracotta */
+  border-color: #e07a5f !important;
+  color: white !important;
+  box-shadow: 0 4px 10px rgba(224, 122, 95, 0.3);
+}
+
+.ant-radio-button-wrapper:before {
+  display: none !important; /* Remove separator line */
+}
+
+/* Button Softening */
+.ant-btn-primary {
+  box-shadow: 0 4px 14px 0 rgba(224, 122, 95, 0.39) !important;
 }
