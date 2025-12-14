@@ -1,21 +1,11 @@
-import React, { useState, useEffect } from "react";
-import {
-  Layout,
-  Menu,
-  Badge,
-  Drawer,
-  List,
-  Button,
-  message,
-  Typography,
-} from "antd";
-import { ShoppingCartOutlined, HomeOutlined } from "@ant-design/icons";
+import React, { useState } from "react";
+import { Layout, Menu, Badge, Drawer, List, Button, message } from "antd";
+import { ShoppingCartOutlined } from "@ant-design/icons";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import ProductList from "./pages/ProductList";
 import Checkout from "./pages/Checkout";
 
 const { Header, Content, Footer } = Layout;
-const { Title, Text } = Typography;
 
 // Basic Cart Interface
 export interface CartItem {
